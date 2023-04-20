@@ -1,0 +1,4 @@
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
+name: r-environment-with-mlflow-and-timeseries-packages
+build:
+  path: docker-context

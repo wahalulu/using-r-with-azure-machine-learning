@@ -1,0 +1,22 @@
+# ./r-deployment.yml
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+name: r-timeseries-deployment
+endpoint_name: r-timeseries-endpoint
+code_configuration:
+  code: ./src
+  scoring_script: plumber.R
+model: azureml:my-registered-timeseries-model:2
+environment:
+  image: <ACR-IMAGE>
+  inference_config:
+    liveness_route:
+      port: 8000
+      path: /live
+    readiness_route:
+      port: 8000
+      path: /ready
+    scoring_route:
+      port: 8000
+      path: /score
+instance_type: Standard_DS2_v2
+instance_count: 1

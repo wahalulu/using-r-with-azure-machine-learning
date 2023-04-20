@@ -1,0 +1,6 @@
+.DS_Store
+.amlignore
+.amlignore.amltmp
+.ipynb_aml_checkpoints
+outputs
+*.amltmp
